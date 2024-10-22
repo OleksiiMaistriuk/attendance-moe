@@ -26,6 +26,7 @@ const ShiftColumn = ({ shiftName, employees, handleCardClick }) => {
               startBreak={employee.startBreak}
               endBreak={employee.endBreak}
               endTime={employee.endTime}
+              position={employee.position}
             />
           </div>
         ))

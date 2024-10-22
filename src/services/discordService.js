@@ -2,7 +2,7 @@ import axios from "axios";
 
 export async function discordService(message) {
   const body = {
-    content: `attendance-mag ${message}`,
+    content: `attendance-moe ${message}`,
     tts: false,
     color: "white",
   };
@@ -40,6 +40,6 @@ export const sendMessage = async (userId, message) => {
     return true;
   } catch (error) {
     console.error("Error sending message:", error);
-    return true;
+    return false;
   }
 };
