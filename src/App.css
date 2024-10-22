@@ -37,7 +37,7 @@ body {
 .shift-column h2 {
   text-align: left;
   color: #444;
-margin: 5px;
+  margin: 5px;
 }
 
 .name-card {
@@ -51,6 +51,7 @@ margin: 5px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s;
+  cursor: pointer;
 }
 
 
@@ -256,6 +257,7 @@ flex-direction: column;
   color: white;
   animation: slide-down 0.3s ease-in;
   transition: transform 0.2s ease, background-color 0.2s ease;
+  cursor: grab
 }
 
 .send-message:hover {

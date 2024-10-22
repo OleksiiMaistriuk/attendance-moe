@@ -8,13 +8,22 @@ import { fetchDataFromServer } from "./services/fetchDataFromServer";
 import { fetchEmployees } from './services/fetchEmployees';
 
 const ShiftColumn = ({ shiftName, employees, handleCardClick }) => {
+  // Sort employees by position number
+  const sortedEmployees = employees.sort((a, b) => {
+    const positionA = parseInt(a.position, 10);
+    const positionB = parseInt(b.position, 10);
+
+    if (isNaN(positionA)) return 1; // If positionA is not a number, place it last
+    if (isNaN(positionB)) return -1; // If positionB is not a number, place it last
+
+    return positionA - positionB; // Sort in ascending order
+  });
 
   return (
     <div className="shift-column">
       <h2>{shiftName}</h2>
-      {employees.length > 0 ? (
-        employees.map((employee, index) => (
-       
+      {sortedEmployees.length > 0 ? (
+        sortedEmployees.map((employee, index) => (
           <div key={index} onClick={() => handleCardClick(employee)}>
             <NameCard
               name={employee.fullName}
@@ -22,7 +31,7 @@ const ShiftColumn = ({ shiftName, employees, handleCardClick }) => {
               department={employee.department}
               cardId={employee.id}
               discordId={employee.discordId}
-              startTime={employee.startTime}      
+              startTime={employee.startTime}
               startBreak={employee.startBreak}
               endBreak={employee.endBreak}
               endTime={employee.endTime}
@@ -36,6 +45,7 @@ const ShiftColumn = ({ shiftName, employees, handleCardClick }) => {
     </div>
   );
 };
+
 
 function App() {
   const [employees, setEmployees] = useState([]);
