@@ -9,7 +9,7 @@ export async function discordService(message) {
 
   try {
     const response = await fetch(
-      "https://discord.com/api/webhooks/1197166983842631711/XLCDrIKER4PYqUSapaVjCnE6YRiYfepwZFDBpTYyZgoSpj006b3oowaDRvDlH1UsvHag",
+      process.env.REACT_APP_DISCORD_WEBHOOK_URL,
       {
         method: "POST",
         headers: {
